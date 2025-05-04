@@ -29,7 +29,7 @@ function NewGoal({ onAddGoal }: NewGoalProps) {
       </p>
       <p>
         <label htmlFor="description">Short Description</label>
-        <input id="summary" type="text" ref={description} />
+        <input id="description" type="text" ref={description} />
       </p>
       <p>
         <button>Add Goal</button>
