@@ -1,5 +1,6 @@
 import { CourseGoalList } from "../types/CourseGoalList";
 
 export interface CourseGoalProps {
-    goals: CourseGoalList[]
+    goals: CourseGoalList[];
+    onDelete: (id: number) => void;
 };
