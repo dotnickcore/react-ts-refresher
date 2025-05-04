@@ -1,20 +1,37 @@
-import { InfoBoxTypes } from "../models/types/InfoBoxProps";
+import { ReactNode } from 'react';
 
 const HINT = 'hint';
 
-function InfoBox({mode, severity, children}: InfoBoxTypes) {
-    if (mode === HINT) {
-        <aside className="infobox infobox-hint">
-            <p>{children}</p>
-        </aside>
-    }
-    
-    return(
-        <aside className={`infobox infobox-warning warning--${severity}`}>
-            <h2>Warning</h2>
-            <p>{children}</p>
-        </aside>
+export type HintBoxTypes = {
+  mode: 'hint';
+  children: ReactNode;
+};
+
+export type WarningBoxTypes = {
+  mode: 'warning';
+  severity: 'low' | 'medium' | 'high';
+  children: ReactNode;
+};
+
+export type InfoBoxTypes = HintBoxTypes | WarningBoxTypes;
+
+function InfoBox(props: InfoBoxTypes) {
+  const { children, mode } = props;
+
+  if (mode === HINT) {
+    return (
+      <aside className="infobox infobox-hint">
+        <p>{children}</p>
+      </aside>
     );
+  }
+
+  return (
+    <aside className={`infobox infobox-warning warning--${props.severity}`}>
+      <h2>Warning</h2>
+      <p>{children}</p>
+    </aside>
+  );
 }
 
 export default InfoBox;

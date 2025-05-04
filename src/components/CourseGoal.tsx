@@ -4,12 +4,6 @@ import CourseGoalDetails from './CourseGoalDetails';
 import InfoBox from './InfoBox';
 
 function CourseGoal({ goals, onDelete }: CourseGoalProps) {
-  if (goals.length === 0) {
-    <InfoBox mode="hint">
-      You have no course goals yet. Start adding some
-    </InfoBox>;
-  }
-
   let warningBox: ReactNode;
 
   if (goals.length >= 4) {
@@ -22,6 +16,11 @@ function CourseGoal({ goals, onDelete }: CourseGoalProps) {
 
   return (
     <>
+        {goals.length === 0 && (
+        <InfoBox mode="hint">
+          You have no course goals yet. Start adding some
+        </InfoBox>
+      )}
       {warningBox}
       <ul>
         {goals.map((goal) => (
