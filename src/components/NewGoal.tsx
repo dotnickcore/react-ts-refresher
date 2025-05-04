@@ -8,8 +8,13 @@ function NewGoal({ onAddGoal }: NewGoalProps) {
   function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event?.preventDefault();
 
-    const inputGoal = goal.current!.value;
-    const inputDescription = description.current!.value;
+    const inputGoal = goal.current!.value.trim();
+    const inputDescription = description.current!.value.trim();
+
+    if (!inputGoal || !inputDescription) {
+      alert('Please enter both a goal and a short description.');
+      return;
+    }
 
     event.currentTarget.reset();
 
