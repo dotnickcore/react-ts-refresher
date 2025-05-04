@@ -1,16 +1,18 @@
-import { type PropsWithChildren } from "react";
-import { CourseGoalProps } from "../models/interfaces/CourseGoalProps";
+import { CourseGoalProps } from '../models/interfaces/CourseGoalProps';
+import CourseGoalDetails from './CourseGoalDetails';
 
-function CourseGoal({ title, children }: PropsWithChildren<CourseGoalProps>) {
-    return <article>
-        <div>
-            <h2>{title}</h2>
-            {children}
-        </div>
-        <div>
-            <button>Delete</button>
-        </div>
-    </article>
+function CourseGoal({ goals }: CourseGoalProps) {
+  return (
+    <ul>
+      {goals.map((goal) => (
+        <li key={goal.id}>
+          <CourseGoalDetails title={goal.title}>
+            <p>{goal.description}</p>
+          </CourseGoalDetails>
+        </li>
+      ))}
+    </ul>
+  );
 }
 
 export default CourseGoal;

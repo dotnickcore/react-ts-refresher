@@ -1,8 +1,5 @@
-export interface CourseGoalProps {
-    title: string,
-}
+import { CourseGoalList } from "../types/CourseGoalList";
 
-/*
-    ReactNode is a type from React that represents 
-    anything that can be rendered inside a component.
-*/
+export interface CourseGoalProps {
+    goals: CourseGoalList[]
+};
