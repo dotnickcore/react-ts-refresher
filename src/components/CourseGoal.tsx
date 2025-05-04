@@ -1,11 +1,11 @@
-import { CourseGoalItem } from "../models/interfaces/CourseGoalItem";
+import { type PropsWithChildren } from "react";
+import { CourseGoalProps } from "../models/interfaces/CourseGoalProps";
 
-function CourseGoal({ id, title, description }: CourseGoalItem) {
+function CourseGoal({ title, children }: PropsWithChildren<CourseGoalProps>) {
     return <article>
         <div>
-            <p>{id}</p>
             <h2>{title}</h2>
-            <p>{description}</p>
+            {children}
         </div>
         <div>
             <button>Delete</button>
