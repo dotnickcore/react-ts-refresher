@@ -1,0 +1,36 @@
+import { FormEvent, useRef } from 'react';
+import { NewGoalProps } from '../models/interfaces/NewGoalProps';
+
+function NewGoal({ onAddGoal }: NewGoalProps) {
+  const goal = useRef<HTMLInputElement>(null);
+  const description = useRef<HTMLInputElement>(null);
+
+  function handleSubmit(event: FormEvent<HTMLFormElement>) {
+    event?.preventDefault();
+
+    const inputGoal = goal.current!.value;
+    const inputDescription = description.current!.value;
+
+    event.currentTarget.reset();
+
+    onAddGoal(inputGoal, inputDescription);
+  }
+
+  return (
+    <form onSubmit={handleSubmit}>
+      <p>
+        <label htmlFor="goal">Your Goal</label>
+        <input id="goal" type="text" ref={goal} />
+      </p>
+      <p>
+        <label htmlFor="description">Short Description</label>
+        <input id="summary" type="text" ref={description} />
+      </p>
+      <p>
+        <button>Add Goal</button>
+      </p>
+    </form>
+  );
+}
+
+export default NewGoal;

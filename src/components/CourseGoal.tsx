@@ -6,7 +6,11 @@ function CourseGoal({ goals, onDelete }: CourseGoalProps) {
     <ul>
       {goals.map((goal) => (
         <li key={goal.id}>
-          <CourseGoalDetails id={goal.id} title={goal.title} onDelete={onDelete}>
+          <CourseGoalDetails
+            id={goal.id}
+            title={goal.title}
+            onDelete={onDelete}
+          >
             <p>{goal.description}</p>
           </CourseGoalDetails>
         </li>

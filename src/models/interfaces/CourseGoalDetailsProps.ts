@@ -1,5 +1,5 @@
 export interface CourseGoalDetailsProps {
-    title: string,
-    id: number,
-    onDelete: (id: number) => void;
+  title: string;
+  id: number;
+  onDelete: (id: number) => void;
 }
